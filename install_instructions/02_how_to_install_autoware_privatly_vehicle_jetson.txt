@@ -1,0 +1,75 @@
+Fork of https://github.com/autowarefoundation/autoware.privately-owned-vehicles/
+
+we update the python files in the folder Models/visualizations 
+
+a. we added a preview to the video_visualization.py files and renamed them to video_visualization_preview.py
+b. we added a file which can used with a camera called camera_visualization_cam.py
+
+when you install the system the org visualizations folder will be renamed to visualizations_old
+we also added a base folder in the home directory called autoware_projects, where you will find
+
+- images
+- videos
+- weights
+- commands
+
+Which you will need to run the system. The video was recorded by us.
+
+The System was tested on a Jetson Orin Nano with Jetpack 6.2 Ubuntu 22.04
+You can test all on your own risk!! 
+
+If you have questions open an issue
+
+How to install all
+
+Step 1. Download the neccessary weights
+
+	Open your Browsrer
+	Download https://hidrive.ionos.com/lnk/ZCcx1DN7Y
+	Copy the file to $HOME/Downloads
+	
+Step 2. Install Torch for CPU and GPU (if you do not have already)
+
+        How to check:
+
+        Python3
+        import torch
+        print(torch.__version__)
+        print("CUDA available:", torch.cuda.is_available())
+
+	Install:
+        
+        pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+
+Step 3. Download Autoware_privately_vehicle 
+
+	cd $HOME
+	git clone https://github.com/futurenowx/autoware_privately_arm_install.git
+
+Step 4. Make install files executable
+
+	cd $HOME/autoware_privately_arm_install
+	sudo chmod +x 02_autoware_privately_install.sh
+	sudo chmod +x 03_autoware_weights_install.sh
+
+Step 5. install application
+
+	cd $HOME/autoware_privately_x86_install
+
+	pip install -r 01_requirements.txt   (Check the 01_how_to_install_requirements.txt first)
+	sudo ./02_autoware_privately_install.sh
+	sudo ./03_autoware_weights_install.sh
+
+If all runned without error, go to autoware_projects/commands and test the commands
+
+for example:
+
+   cd $HOME
+
+   cd autoware.privately-owned-vehicles/Models/visualizations
+
+   python3 EgoLanes/video_visualization_preview.py   -p ~/autoware_projects/weights/EgoLanes/weights_egolanes.pth   -i ~/autoware_projects/videos/source/highway_stuttgart.mp4   -o ~/autoware_projects/videos/output/EgoLanes --show
+
+
+

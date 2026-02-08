@@ -1,0 +1,29 @@
+Vision Pilot is a complete Level 2 Application, which was developed by the Autoware Foundation Team
+
+You can try it on a car based on a single camera.
+
+How to install
+
+The System was tested on a X86 machine/NVIDIA GPU 20260 with Ubuntu 22.04
+You can test all on your own risk!! 
+
+
+1. Go to 
+   https://github.com/autowarefoundation/autoware.privately-owned-vehicles/releases/tag/v0.5
+
+2. Download  visionpilot-0.5-x86_64.deb 
+
+3. sudo chmod +x  visionpilot-0.5-x86_64.deb 
+
+4. sudo apt install ./visionpilot-0.5-x86_64.deb 
+ 
+5. Edit visionpilot config
+
+sudo nano usr/share/visionpilot/visionpilot.conf 
+- check the links to source and output video
+- check the link and username to tensorRT cache
+
+ 
+safe+close it 
+ 
+start all from root with "visionpilot"

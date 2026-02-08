@@ -1,0 +1,59 @@
+Commands to run the different Models
+
+
+1. main command path
+
+cd autoware.privately-owned-vehicles/Models/visualizations
+
+
+2. commands for images:
+
+python3 SceneSeg/image_visualization.py -p ~/autoware_projects/weights/SceneSeg/weights_sceneseg.pth -i ~/autoware_projects/images/source/highway_stuttgart.png -o ~/autoware_projects/images/output/SceneSeg/
+
+python3 Scene3D/image_visualization.py -p ~/autoware_projects/weights/Scene3D/weights_scene3d.pth -i ~/autoware_projects/images/source/highway_stuttgart.png -o ~/autoware_projects/images/output/Scene3D/
+
+python3 DomainSeg/image_visualization.py -p ~/autoware_projects/weights/DomainSeg/weights_domainseg.pth -i ~/autoware_projects/images/source/cones.jpg -o ~/autoware_projects/images/output/DomainSeg/
+
+python3 EgoLanes/image_visualization.py -p ~/autoware_projects/weights/EgoLanes/weights_egolanes.pth -i ~/autoware_projects/images/source/highway_stuttgart.png -o ~/autoware_projects/images/output/EgoLanes/
+
+
+3. commands for videos:
+
+SceneSeg
+
+python3 SceneSeg/video_visualization_preview.py -p ~/autoware_projects/weights/SceneSeg/weights_sceneseg.pth -i ~/autoware_projects/videos/source/highway_stuttgart.mp4 -o ~/autoware_projects/videos/output/SceneSeg/highway_stuttgart_out --show
+
+python3 SceneSeg/camera_visualization_cam.py   -p ~/autoware_projects/weights/SceneSeg/weights_sceneseg.pth  -o ~/autoware_projects/videos/output/SceneSeg/highway_stuttgart_out_cam --show
+
+Scene3D
+
+python3 Scene3D/video_visualization_preview.py -p ~/autoware_projects/weights/Scene3D/weights_scene3d.pth -i ~/autoware_projects/videos/source/highway_stuttgart.mp4 -o ~/autoware_projects/videos/output/Scene3D/highway_stuttgart_out --show
+
+python3 Scene3D/camera_visualization_cam.py   -p ~/autoware_projects/weights/Scene3D/weights_scene3d.pth  -o ~/autoware_projects/videos/output/Scene3D/highway_stuttgart_out_cam --show
+
+
+DomainSeg
+
+python3 DomainSeg/video_visualization_preview.py -p ~/autoware_projects/weights/DomainSeg/weights_domainseg.pth -i ~/autoware_projects/videos/source/cone_video.mp4 -o ~/autoware_projects/videos/output/DomainSeg/cones_output --show
+
+python3 DomainSeg/camera_visualization_cam.py   -p ~/autoware_projects/weights/DomainSeg/weights_scene3d.pth  -o ~/autoware_projects/videos/output/DomainSeg/cones_out_cam--show
+
+EgoLanes
+
+python3 EgoLanes/video_visualization_preview.py   -p ~/autoware_projects/weights/EgoLanes/weights_egolanes.pth   -i ~/autoware_projects/videos/source/highway_stuttgart.mp4   -o ~/autoware_projects/videos/output/EgoLanes --show
+
+python3 EgoLanes/camera_visualization_cam.py   -p ~/autoware_projects/weights/EgoLanes/weights_egolanes.pth  -o ~/autoware_projects/videos/output/EgoLanes/highway_stuttgart_out_cam --show  
+
+
+AutoSpeed
+
+python3 AutoSpeed/video_visualization_preview.py -p ~/autoware_projects/weights/AutoSpeed/weights_autospeed.pth -i ~/autoware_projects/videos/source/highway_stuttgart.mp4 -o ~/autoware_projects/videos/output/AutoSpeed/highway_output/highway_stuttgart_out --show
+
+python3 AutoSpeed/camera_visualization_cam.py   -p ~/autoware_projects/weights/AutoSpeed/weights_autospeed.pth  -o ~/autoware_projects/videos/output/AutoSpeed/highway_stuttgart_out_cam --show
+
+AutoSteer
+
+python3 AutoSteer/video_visualization_preview.py   -e ~/autoware_projects/weights/EgoLanes/weights_egolanes.pth   -a ~/autoware_projects/weights/AutoSteer/weights_autosteer.pth   -i ~/autoware_projects/videos/source/highway_stuttgart.mp4   -o ~/autoware_projects/videos/output/AutoSteer/highway_stuttgart_out --show
+
+python3 AutoSteer/camera_visualization_cam.py -e ~/autoware_projects/weights/EgoLanes/weights_egolanes.pth -a ~/autoware_projects/weights/AutoSteer/weights_autosteer.pth  
+-o ~/autoware_projects/videos/output/AutoSteer/highway_stuttgart_out_cam --show

@@ -1,0 +1,41 @@
+How to install camera test
+
+#how to install
+sudo apt install v4l-utils
+
+#List you all devices with ports
+v4l2-ctl --list-devices
+
+#List you all devices formats
+v4l2-ctl --list-formats-ext
+
+
+When you use the camera python files (camera_visualization_cam.py) or camera_test.py
+you need to setup your camera port in for example
+
+camera_visualization_cam.py
+
+parser.add_argument(
+        "--camera_id",
+        type=int,
+        default=0,
+        help="Camera device index (default: 0)"
+        
+run v4l2-ctl --list-devices, see the camera ports of your target camera and try the ports
+with the camera_test.py (cap = cv2.VideoCapture(6), change the number according to the list), 
+if you find the right port then add this port no to the default=0 for example rename it for 
+example to default=4.
+
+Installation of the system
+
+1. run pre_install.py
+2. run autoware_private_install.py
+
+open terminal
+
+run: 
+cd autoware.privately-owned-vehicles/Models/visualizations
+
+open 
+
+commands/python_commands.txt, and run any of the commands.

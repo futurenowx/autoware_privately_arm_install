@@ -51,13 +51,13 @@ Step 3. Download Autoware_privately_vehicle
 
 Step 4. Make install files executable
 
-	cd $HOME/autoware_privately_arm_install
+	cd $HOME/autoware_vision_pilot_arm_install
 	sudo chmod +x 02_autoware_privately_install_jetson.sh
 	sudo chmod +x 03_autoware_weights_install.sh
 
 Step 5. install application
 
-	cd $HOME/autoware_privately_x86_install
+	cd $HOME/autoware_vision_pilot_arm_install
 
 	pip install -r 01_requirements.txt   (Check the 01_how_to_install_requirements.txt first)
 	sudo ./02_autoware_privately_install_jetson.sh

@@ -16,12 +16,12 @@ echo "Home directory: $USER_HOME"
 # Go to user's home directory
 cd "$USER_HOME"
 
-# Check if folder autoware.privately-owned-vehicles exists, if yes rename it to autoware.privately-owned-vehicles_old
-if [ -d "autoware.privately-owned-vehicles" ]; then
-    mv autoware.privately-owned-vehicles autoware.privately-owned-vehicles_old
-    echo "✅ Folder renamed to autoware.privately-owned-vehicles_old"
+# Check if folder autoware_vision_pilot exists, if yes rename it to autoware_vision_pilot_old
+if [ -d "autoware_vision_pilot" ]; then
+    mv autoware_vision_pilot autoware_vision_pilot_old
+    echo "✅ Folder renamed to autoware_vision_pilot_old"
 else
-    echo "ℹ️ Folder autoware.privately-owned-vehicles not found, skipping rename"
+    echo "ℹ️ Folder autoware_vision_pilot not found, skipping rename"
 fi
 
 # Check if folder exists autoware_projects, if yes, rename it to autoware_projects_old
@@ -35,27 +35,27 @@ fi
 cd "$USER_HOME"
 
 # Clone Autoware repository
-git clone https://github.com/autowarefoundation/autoware.privately-owned-vehicles.git
+git clone https://github.com/autowarefoundation/autoware_vision_pilot.git
 
 # Fix ownership and permissions if running as sudo
 if [ -n "$SUDO_USER" ]; then
-    chown -R $SUDO_USER:$SUDO_USER autoware.privately-owned-vehicles
+    chown -R $SUDO_USER:$SUDO_USER autoware_vision_pilot
     echo "✅ Ownership set to $SUDO_USER"
 fi
 
 # Set proper permissions (owner: read/write/execute, group: read/execute, others: read/execute)
-chmod -R 755 autoware.privately-owned-vehicles
+chmod -R 755 autoware_vision_pilot
 echo "✅ Permissions set correctly"
 
 # Rename Models folder
-mv autoware.privately-owned-vehicles/Models/visualizations \
-   autoware.privately-owned-vehicles/Models/visualizations_old
+mv autoware_vision_pilot/Models/visualizations \
+   autoware_vision_pilot/Models/visualizations_old
 
-# Go to autoware_privately_arm_install folder
-cd "$USER_HOME/autoware_privately_arm_install" || { echo "❌ Cannot enter autoware_privately_arm_install folder"; exit 1; }
+# Go to autoware_vision_pilot_arm_install folder
+cd "$USER_HOME/autoware_vision_pilot_arm_install" || { echo "❌ Cannot enter autoware_vision_pilot_arm_install folder"; exit 1; }
 
 # Debug: List contents of current directory
-echo "📂 Contents of autoware_privately_arm_install:"
+echo "📂 Contents of autoware_vision_pilot_arm_install:"
 ls -la
 
 # copy folder autoware_projects to user home
@@ -70,7 +70,7 @@ if [ -d "$SOURCE" ]; then
         echo "✅ Ownership set to $SUDO_USER for autoware_projects"
     fi
 else
-    echo "❌ Error: autoware_projects folder does not exist in $USER_HOME/autoware_privately_arm_install"
+    echo "❌ Error: autoware_projects folder does not exist in $USER_HOME/autoware_vision_pilot_arm_install"
     exit 1
 fi
 
@@ -103,14 +103,14 @@ if [ -n "$SUDO_USER" ]; then
     echo "✅ Ownership set to $SUDO_USER for videos and images folders"
 fi
 
-# Go back to autoware_privately_arm_install to copy visualizations
-cd "$USER_HOME/autoware_privately_arm_install"
+# Go back to autoware_vision_pilot_arm_install to copy visualizations
+cd "$USER_HOME/autoware_vision_pilot_arm_install"
 
-# copy folder visualizations to autoware.privately-owned-vehicles/Models
+# copy folder visualizations to autoware_vision_pilot/Models
 SOURCE="visualizations"
-DEST="$USER_HOME/autoware.privately-owned-vehicles/Models"
+DEST="$USER_HOME/autoware_vision_pilot/Models"
 
-echo "🔍 Looking for visualizations folder at: $USER_HOME/autoware_privately_arm_install/$SOURCE"
+echo "🔍 Looking for visualizations folder at: $USER_HOME/autoware_vision_pilot_arm_install/$SOURCE"
 
 if [ -d "$SOURCE" ]; then
     cp -r "$SOURCE" "$DEST"

@@ -1,9 +1,9 @@
-how to install the requirements.txt
+How to install the requirements.txt
 
 The 01_requirements.txt are the basefiles you will need to get the applications run.
 You will find the file in the folder autoware_vision_pilot_arm_install.
 
-1. cd $Home/autoware_vision_pilot_arm_install or cd to your folder
+1. cd $Home
 
 2. install pip
     - only if you do not have pip 
@@ -13,10 +13,12 @@ You will find the file in the folder autoware_vision_pilot_arm_install.
        sudo apt update
        sudo apt install -y python3-pip 
     - check again with  pip3 --version 
+
+3. cd $Home/autoware_vision_pilot_arm_install
          
- 3. pip install -r 01_requirements.txt
+4. pip install -r 01_requirements.txt
  
- 4. check
+5. check
      python - << EOF
 	import torch
 	import cv2
@@ -30,6 +32,6 @@ You will find the file in the folder autoware_vision_pilot_arm_install.
 	print("ONNX Runtime:", onnxruntime.__version__)
 	EOF
 
-5. done
+6. done
  
  

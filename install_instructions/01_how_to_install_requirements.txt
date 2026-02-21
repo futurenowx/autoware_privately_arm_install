@@ -1,4 +1,4 @@
-how to install the requirements.txt
+how to install the 01_requirements.txt
 
 the 01_requirements.txt are the basefiles you will need to get the applications run.
 a. You will find it in the folder home/autoware_privately_temp. 

@@ -88,10 +88,10 @@ if [ -d "$USER_HOME/autoware_weights_temp" ]; then
     echo "✅ Deleted ~/autoware_weights_temp"
 fi
 
-# Delete autoware_privately_x86_install if it exists
-if [ -d "$USER_HOME/autoware_privately_x86_install" ]; then
-    rm -rf "$USER_HOME/autoware_privately_x86_install"
-    echo "✅ Deleted ~/autoware_privately_x86_install"
+# Delete autoware_vision_pilot_arm_install if it exists
+if [ -d "$USER_HOME/autoware_vision_pilot_arm_install" ]; then
+    rm -rf "$USER_HOME/autoware_vision_pilot_arm_install"
+    echo "✅ Deleted ~/autoware_vision_pilot_arm_install"
 fi
 
 # Delete the ZIP file if it exists

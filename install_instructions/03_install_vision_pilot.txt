@@ -9,7 +9,7 @@ You can test all on your own risk!!
 
 
 1. Go to 
-   https://github.com/autowarefoundation/autoware.privately-owned-vehicles/releases/tag/v0.5
+   https://github.com/autowarefoundation/autoware_vision_pilot/releases/tag/v0.5
 
 2. Download  visionpilot-0.5-x86_64.deb 
 
